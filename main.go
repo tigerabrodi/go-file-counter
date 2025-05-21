@@ -1,10 +1,12 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
-	"log"
 	"os"
 )
+
+const statsFilename = "stats.txt"
 
 func main() {
 	if len(os.Args) < 2 {
@@ -14,14 +16,26 @@ func main() {
 
 	filename := os.Args[1]
 
-	file, err := os.Open(filename)
+	data, err := os.ReadFile(filename)
 
 	if err != nil {
-		log.Printf("Error, couldnt open file %s, some error: %v", filename, err)
-
-		fmt.Fprintf(os.Stderr, "Something went wrong when opening the file %s", filename)
-		fmt.Fprintf(os.Stderr, "Make sure the file exists so that we can open it, maybe the file name itself is wrong?")
+		fmt.Fprintf(os.Stderr, "Error: Couldn't read file %s, %v", filename, err)
+		os.Exit(1)
 	}
 
-	defer file.Close()
+	linesCount := countLines(data)
+	wordsCount := countWords(data)
+
+	content := fmt.Sprintf("Words: %d\n, lines: %d\n", wordsCount, linesCount)
+
+	os.WriteFile(statsFilename, []byte(content), 0644)
+
+}
+
+func countLines(data []byte) int {
+	return bytes.Count(data, []byte{'\n'}) + 1
+}
+
+func countWords(data []byte) int {
+	return bytes.Count(data, []byte{' '}) + 1
 }
