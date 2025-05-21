@@ -1,0 +1,15 @@
+The Go programming language is an open source project to make programmers more productive.
+
+Go is expressive, concise, clean, and efficient. Its concurrency mechanisms make it easy to write programs that get the most out of multicore and networked machines, while its novel type system enables flexible and modular program construction.
+
+Go compiles quickly to machine code yet has the convenience of garbage collection and the power of run-time reflection. It's a fast, statically typed, compiled language that feels like a dynamically typed, interpreted language.
+
+The Go project includes the language itself, its tools and standard libraries, and last but not least, a cultural agenda of radical simplicity.
+
+Go was originally designed at Google in 2007 to improve programming productivity in an era of multicore, networked machines and large codebases. Today it powers much of the cloud infrastructure across various companies and has become popular for CLI tools, DevOps, web development, and more.
+
+The language is often referred to as Golang because of its domain name, golang.org, but its proper name is Go.
+
+For this text file analysis project, you'll need to count lines, words, and perhaps characters, then output statistics about the text content. This is similar to the Unix 'wc' command, but with expanded functionality.
+
+This sample text has 8 paragraphs, 23 sentences, and approximately 182 words, providing a decent test case for your program.
