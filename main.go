@@ -26,7 +26,7 @@ func main() {
 	linesCount := countLines(data)
 	wordsCount := countWords(data)
 
-	content := fmt.Sprintf("Words: %d\n, lines: %d\n", wordsCount, linesCount)
+	content := fmt.Sprintf("Words: %d\nlines: %d\n", wordsCount, linesCount)
 
 	os.WriteFile(statsFilename, []byte(content), 0644)
 
